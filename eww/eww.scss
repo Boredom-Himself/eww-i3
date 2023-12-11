@@ -1,0 +1,51 @@
+
+
+* { all: unset; }
+.example{
+    background-color: #242424;
+}
+// .ws {
+//     background-color: #242424;
+// }
+// .nameWs {
+//     transition: 250ms;
+// }
+.container {
+    background-color: #242424;
+    margin-left: 3px;
+}
+
+.occupied, .active, .inactive {
+    margin-top: 9px;
+    margin-bottom: 8px;
+    margin-right: 2px;
+    margin-left: 3px;
+    font-size: 8px;
+    padding: 1px 20px;
+    background-color: #565656;
+    border-radius: 50px;
+}
+.active {
+    padding: 1px 25px;
+}
+
+// .nameWs {
+//     margin: 7px 0px;
+//     transition: 0.15s;
+//     background-color: $base00;
+
+//     .active {
+//         transition: 0.15s;
+//         margin: 8px 3px;
+//     }
+    
+//     .inactive {
+//         padding: 0 20px;
+//         background-color: $baseA0;
+//     }
+
+//     .occupied {
+//         padding: 0 15px;
+//         background-color: $base03;
+//     }
+// }

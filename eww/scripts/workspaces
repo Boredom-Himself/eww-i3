@@ -1,0 +1,43 @@
+#!/bin/bash
+# This script is based off of Vensci's XMonad workspace script and provided to my by GW
+#(With some minor modifications by me(Boredom (I'm an idiot))).
+# Basically all credit goes to him. I just made a few personal adjustments in order
+# to get it working more consistently.
+
+# This function is responsible for receiving data from wmctrl and updating the icons
+# and class names so that they match the actual current state of the window manager.
+nameWs() {
+  buffered=""
+  wmctrl -d | awk '{print $1 " " "\\"$2 " " $9}' | while read -r id active name; do
+    name="${name#*_}"
+
+    active=${active##*\\} && active=${active%% *}
+
+
+    if wmctrl -l | grep --regexp '.*\s\+'"$id"'\s\+.*' >/dev/null; then
+      wClass="occupied"
+#      wName=""
+    else
+      wClass="inactive"
+#      wName=""
+    fi
+
+    if [ "$active" == '*' ]; then
+      wClass="active"
+#      wName=""
+    fi
+
+    buffered+="(button :class \"$wClass\" :onclick \"wmctrl -s $id\" \"$wName\")"
+    echo -n "$buffered"
+    buffered=""
+  done
+}
+
+# This are the eww box attributes that will be used in the workspace widget.
+box_attrs=':orientation "h" :class "ws" :space-evenly false'
+# This checks the root window for updates, updating the nameWs output every 
+# time a change occurs to a workspace (window opened or focused desktop).
+xprop -spy -root | while read -r _; do
+echo "(box $box_attrs $(nameWs))"
+done
+#:tooltip \"Switch to $name?\

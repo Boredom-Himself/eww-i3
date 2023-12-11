@@ -1,0 +1,68 @@
+(defwindow example
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "20px"
+                               :width "90%"
+                               :height "32px"
+                               :anchor "top center")
+           :stacking "fg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dock"
+           :wm-ignore false
+            (container)
+)
+
+(defwidget container []
+    (box
+        :class "container"
+        (start)
+        (center)
+        (end)
+    )
+)
+
+(defwidget start []
+    (box
+        :class "start_module"
+        (workspacess) 
+    )
+)
+
+(defwidget center []
+    (box
+        (rofi)
+    )
+)
+
+(defwidget end []
+    (box) 
+)
+
+
+(defwidget rofi []
+  (box
+    :class "rofi" 
+    (eventbox
+        :cursor "pointer"
+        :onclick "rofi -i -show drun -modi drun -show-icons &"
+        :halign "center"
+        (image
+            :path "./images/Vector.png"
+            :image-width 32
+            :image-height 32
+        )
+    )) 
+    )
+
+(defwidget workspacess [] 
+    (box :class "left" :orientation "h" :space-evenly "false" :spacing 8
+        (box :class "ws" :orientation "h"
+            (literal :content workspace)
+        )
+    )
+)
+
+
+(deflisten workspace "$HOME/.config/eww/scripts/workspaces")
+
+

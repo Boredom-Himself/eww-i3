@@ -12,6 +12,20 @@
             (container)
 )
 
+(defwindow controlcenter
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "40px"
+                               :width "30%"
+                               :height "30%"
+                               :anchor "top right")
+           :stacking "fg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dock"
+           :wm-ignore true
+            "Controlcenter"
+)
+
 (defwidget container []
     (box
         :class "container"
@@ -35,25 +49,57 @@
 )
 
 (defwidget end []
-    (box) 
+    (box
+        (time) 
+        (controlcenterlel)
+    )
+)
+
+
+(defwidget time []
+    (box
+        :class "time"
+        (label
+            :text {formattime(EWW_TIME, "%H:%M ")}
+;;          :text {formattime(EWW_TIME, "+%H:%M %b %d, %Y")}        
+        )
+    )
+)
+
+(defwidget controlcenterlel []
+    (box
+        :class "controlcenterlel" 
+        (eventbox
+            :cursor "pointer"
+            :onclick "eww open controlcenter --toggle"
+            :halign "end"
+            :space-evenly "false"
+            (image
+                :path "./images/profilel.png"
+                :image-width 22
+                :image-height 22
+            )
+        )
+    ) 
 )
 
 
 (defwidget rofi []
-  (box
-    :class "rofi" 
-    (eventbox
-        :cursor "pointer"
-        :onclick "rofi -i -show drun -modi drun -show-icons &"
-        :halign "center"
-        (image
-            :path "./images/Vector.png"
-            :image-width 32
-            :image-height 32
+    (box
+        :class "rofi" 
+        (eventbox
+            :cursor "pointer"
+            :onclick "rofi -i -show drun -modi drun -show-icons &"
+            :halign "center"
+            (image
+                :path "./images/seaarch.png"
+                :image-width 22
+                :image-height 22
+            )
         )
-    )) 
-    )
-
+    ) 
+)
+(deflisten workspace "$HOME/.config/eww/scripts/workspaces")
 (defwidget workspacess [] 
     (box :class "left" :orientation "h" :space-evenly "false" :spacing 8
         (box :class "ws" :orientation "h"
@@ -63,6 +109,6 @@
 )
 
 
-(deflisten workspace "$HOME/.config/eww/scripts/workspaces")
+
 
 

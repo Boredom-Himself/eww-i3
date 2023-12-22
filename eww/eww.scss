@@ -10,42 +10,73 @@
 // .nameWs {
 //     transition: 250ms;
 // }
+
 .container {
-    background-color: #242424;
-    margin-left: 3px;
-}
-
-.occupied, .active, .inactive {
-    margin-top: 9px;
-    margin-bottom: 8px;
-    margin-right: 2px;
-    margin-left: 3px;
-    font-size: 8px;
-    padding: 1px 20px;
-    background-color: #565656;
-    border-radius: 50px;
-}
-.active {
-    padding: 1px 25px;
-}
-
-// .nameWs {
-//     margin: 7px 0px;
-//     transition: 0.15s;
-//     background-color: $base00;
-
-//     .active {
-//         transition: 0.15s;
-//         margin: 8px 3px;
-//     }
+        background-color: #002b36;
+        margin-left: 3px;
+        padding-left: 6px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
     
-//     .inactive {
-//         padding: 0 20px;
-//         background-color: $baseA0;
-//     }
+    .occupied, .active, .inactive {    
+        margin-top: 9px;
+        margin-bottom: 8px;
+        margin-right: 2px;
+        margin-left: 3px;
+        font-size: 6px;
+        padding: 1px 20px;
+        background-color: #93a1a1;
+//        background-color: #3c4e63;
+        border-radius: 50px;
+    }
+    .active {
+        padding: 1px 25px;
+    }
+    
 
-//     .occupied {
-//         padding: 0 15px;
-//         background-color: $base03;
-//     }
+.time {
+    color:#93a1a1;
+    font-weight:bold;
+    margin-left: 320px;
+}
+.controlcenter {
+    background-color: #002b36;
+}
+.controlcenterlel {
+    margin-left: 10px;
+}
+// // // .container {
+// // //     background-color: #242424;
+// // //     margin-left: 3px;
+// // // }
+
+// // // .occupied, .active, .inactive {    
+// // //     margin-top: 9px;
+// // //     margin-bottom: 8px;
+// // //     margin-right: 2px;
+// // //     margin-left: 3px;
+// // //     font-size: 8px;
+// // //     padding: 1px 20px;
+// // //     background-color: #565656;
+// // //     border-radius: 50px;
+// // // }
+// // // .active {
+// // //     padding: 1px 25px;
+// // // }
+
+// .active {
+//     padding: 1px 500px;
+//     background-color: #565656;
+//     margin: 10px;
 // }
+// .inactive {
+//     padding: 1px 10px;
+//     background-color: #565656;
+
+//     margin: 10px;}
+// .occupied {
+//     padding: 1px 10px;
+//     background-color: #565656;
+
+//     margin: 10px;}
